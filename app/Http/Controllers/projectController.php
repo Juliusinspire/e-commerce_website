@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\product;
+use App\Models\Cart;
+use App\Models\Order;
+
+use Illuminate\Support\Facades\DB;
+class productController extends Controller
+{
+    //
+    function index()
+    {
+        $data= Product::all();
+
+       return view('product',['products'=>$data]);
+    }
+    function detail($id)
+    {
+        $data =Product::find($id);
+        return view('detail',['product'=>$data]);
+    }
+}
