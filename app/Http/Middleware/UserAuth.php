@@ -13,12 +13,12 @@ class UserAuth
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
-    {
-        if($request->path()=="login" && $request->session)->has('user'))
-        {
-            return redirect('/login')
-        }
-        return $next($request);
-    }
+    // public function handle(Request $request, Closure $next)
+    // {
+    //     if($request->path()=="login" && $request->session)->has('user'))
+    //     {
+    //         return redirect('/login')
+    //     }
+    //     return $next($request);
+    // }
 }

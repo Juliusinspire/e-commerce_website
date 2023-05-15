@@ -21,6 +21,12 @@ use App\Http\Controllers\projectController;
 //     return view('welcome');
 // });
 //Users route
+
+
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('login');
+});
 Route::view('signup', 'signup');
 Route::post('signup', [AuthController::class, 'index']);
 Route::view('login', 'login');
@@ -29,6 +35,14 @@ Route::post('login',[AuthController::class, 'login']);
 Route::get('dash',[AuthController::class, 'dash']);
 Route::get("detail/{id}",[AuthController::class, 'detail']);
 Route::get("search",[AuthController::class,'search']);
+Route::post("add_to_cart",[AuthController::class,'addToCart']);
+Route::get("cartlist",[AuthController::class,'cartList']);
+Route::get("removecart/{id}",[AuthController::class,'removeCart']);
+Route::get("ordernow",[AuthController::class,'orderNow']);
+Route::post("orderplace",[AuthController::class,'orderPlace']);
+
+
+// Route::get("cartlist",[AuthController::class,'cartList']);
 
 
 //Admin route
